@@ -12,12 +12,12 @@ type basicApiRouter struct{}
 func (b *basicApiRouter) InitBasicRouter(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{
-		Router.GET("/feed/", api.Feed)
-		Router.GET("/user/", api.UserInfo)
-		Router.POST("/user/register/", api.Register)
-		Router.POST("/user/login/", api.Login)
-		Router.POST("/publish/action/", api.Publish)
-		Router.GET("/publish/list/", api.PublishList)
+		Router.GET("/feed", api.Feed)
+		Router.GET("/user", api.UserInfo)
+		Router.POST("/user/register", api.Register)
+		Router.POST("/user/login", api.Login)
+		Router.POST("/publish/action", api.Publish)
+		Router.GET("/publish/list", api.PublishList)
 	}
 }
 

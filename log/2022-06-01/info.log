@@ -1,0 +1,7 @@
+[QinDouYin/Jaki]2022/06/01 - 00:15:29.004	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:17	use middleware logger
+[QinDouYin/Jaki]2022/06/01 - 00:15:29.006	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:29	router register success
+[QinDouYin/Jaki]2022/06/01 - 00:15:29.007	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/01 - 00:15:29.007	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:27	server run success on 	{"env": "develop"}
+[QinDouYin/Jaki]2022/06/01 - 00:20:38.008	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	use middleware logger
+[QinDouYin/Jaki]2022/06/01 - 00:20:38.009	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:30	router register success
+[QinDouYin/Jaki]2022/06/01 - 00:20:38.010	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}

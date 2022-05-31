@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	"QingYin/global"
 	"QingYin/utils"
 
 	"github.com/fsnotify/fsnotify"
@@ -29,7 +30,7 @@ func Viper(path ...string) *viper.Viper {
 
 	v := viper.New()
 	v.SetConfigFile(config) //加载配置文件
-	v.SetConfigName("yaml") //设置配置文件类型 支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件
+	v.SetConfigType("yaml") //设置配置文件类型 支持 JSON/TOML/YAML/HCL/envfile/Java properties 等多种格式的配置文件
 	if err := v.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
@@ -37,6 +38,15 @@ func Viper(path ...string) *viper.Viper {
 
 	v.OnConfigChange(func(e fsnotify.Event) {
 		fmt.Println("config file changed:", e.Name)
+		//装配总配置文件
+		if err := v.Unmarshal(&global.GVA_CONFIG); err != nil {
+			fmt.Println(err)
+		}
 	})
+
+	//装配总配置文件
+	if err := v.Unmarshal(&global.GVA_CONFIG); err != nil {
+		fmt.Println(err)
+	}
 	return v
 }
