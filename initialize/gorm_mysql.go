@@ -1,14 +1,16 @@
 package initialize
 
 import (
-	"QinYin/global"
+	"QingYin/global"
+	"os"
 
+	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 //初始化MySQL数据库
-func gormMysql() *gorm.DB {
+func GormMysql() *gorm.DB {
 	m := global.GVA_CONFIG.Mysql
 	//数据库名为空返回nil
 	if m.Dbname == "" {
@@ -29,4 +31,15 @@ func gormMysql() *gorm.DB {
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
 		return db
 	}
+}
+
+// 自动建立表结构
+func RegisterTables(db *gorm.DB) {
+	err := db.AutoMigrate()
+
+	if err != nil {
+		global.GVA_LOG.Error("register table failed", zap.Error(err))
+		os.Exit(0)
+	}
+	global.GVA_LOG.Info("register table success")
 }

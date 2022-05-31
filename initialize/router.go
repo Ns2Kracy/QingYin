@@ -1,15 +1,15 @@
 package initialize
 
 import (
-	"QinYin/global"
-	"QinYin/middleware"
-	"QinYin/router"
+	"QingYin/global"
+	"QingYin/middleware"
+	"QingYin/router"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-func initRouter() *gin.Engine {
+func InitRouter() *gin.Engine {
 	r := gin.Default()
 
 	//提供文件上传文件路径

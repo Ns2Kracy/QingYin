@@ -1,16 +1,16 @@
-//用于加载配置文件
 package core
 
 import (
 	"flag"
 	"fmt"
 
-	"QinYin/utils"
+	"QingYin/utils"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 )
 
+//用于加载配置文件
 func Viper(path ...string) *viper.Viper {
 	var config string
 	if len(path) == 0 {

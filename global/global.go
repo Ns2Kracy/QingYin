@@ -1,11 +1,11 @@
 package global
 
 import (
-	"QinYin/config"
+	"QingYin/config"
 
-	"github.com/jinzhu/gorm"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
+	"gorm.io/gorm"
 )
 
 var (

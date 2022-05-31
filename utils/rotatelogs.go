@@ -3,7 +3,7 @@ package utils
 import (
 	"os"
 
-	"QinYin/global"
+	"QingYin/global"
 
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap/zapcore"

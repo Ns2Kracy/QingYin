@@ -1,13 +1,14 @@
 package router
 
 import (
-	v1 "QinYin/api/v1"
+	v1 "QingYin/api/v1"
 
 	"github.com/gin-gonic/gin"
 )
 
 type basicApiRouter struct{}
 
+// 初始化基本接口路由
 func (b *basicApiRouter) InitBasicRouter(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{

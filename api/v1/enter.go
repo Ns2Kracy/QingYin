@@ -6,6 +6,7 @@ type ApiGroup struct {
 	extraApi_2
 }
 
+//service层实例化
 var ()
 
 var ApiGroups = new(ApiGroup)

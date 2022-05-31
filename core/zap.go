@@ -1,8 +1,8 @@
 package core
 
 import (
-	"QinYin/global"
-	"QinYin/utils"
+	"QingYin/global"
+	"QingYin/utils"
 	"fmt"
 	"os"
 	"time"
