@@ -38,7 +38,7 @@
 
 ## 5.31-6.1测试访问接口结果：
 
-![image-20220601002408274](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220601002408274.png)
+![image-20220601002408274](https://sm.ms/image/ld5gOEVLxCpUZsR)
 
 **并未实现业务逻辑，只是进行了伪数据测试**
 
