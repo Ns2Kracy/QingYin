@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 func InitRouter() *gin.Engine {
@@ -14,6 +15,7 @@ func InitRouter() *gin.Engine {
 
 	//提供文件上传文件路径
 	r.StaticFS(global.GVA_CONFIG.Local.Path, http.Dir(global.GVA_CONFIG.Local.Path))
+	global.GVA_LOG.Info("文件上传路径:", zap.String("", global.GVA_CONFIG.Local.Path))
 
 	global.GVA_LOG.Info("use middleware logger")
 

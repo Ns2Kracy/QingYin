@@ -38,7 +38,12 @@
 
 ## 5.31-6.1测试访问接口结果：
 
-![image-20220601002408274](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220601002408274.png)
+![image-20220601002408274.png](https://s2.loli.net/2022/06/02/IB84bySNMqTWX3P.png)
 
 **并未实现业务逻辑，只是进行了伪数据测试**
 
+## 6.1-6.2数据库结构搭建：
+
+![image-20220602012937404.png](https://s2.loli.net/2022/06/02/SUCMiGgj7YnIhPy.png)
+
+![image-20220602013202537.png](https://s2.loli.net/2022/06/02/r7FaAnNHQoUiqhS.png)
