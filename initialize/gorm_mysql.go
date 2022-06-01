@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"QingYin/global"
+	model "QingYin/model/system"
 	"os"
 
 	"go.uber.org/zap"
@@ -35,7 +36,13 @@ func GormMysql() *gorm.DB {
 
 // 自动建立表结构
 func RegisterTables(db *gorm.DB) {
-	err := db.AutoMigrate()
+	//这一步很重要
+	db.SetupJoinTable(&model.SysUser{}, "Comments", &model.UserCommentVideo{})
+	err := db.AutoMigrate(
+		&model.SysUser{},
+		&model.SysVideo{},
+		&model.UserCommentVideo{},
+	)
 
 	if err != nil {
 		global.GVA_LOG.Error("register table failed", zap.Error(err))
