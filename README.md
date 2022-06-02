@@ -49,3 +49,13 @@
 ![image-20220602012937404.png](https://s2.loli.net/2022/06/02/SUCMiGgj7YnIhPy.png)
 
 ![image-20220602013202537.png](https://s2.loli.net/2022/06/02/r7FaAnNHQoUiqhS.png)
+
+## 6.2-6.3用户业务逻辑实现
+
+![register.png](https://s2.loli.net/2022/06/03/13siChgURbXFw9v.png)
+
+![login.png](https://s2.loli.net/2022/06/03/WHEznYVQ2ob8gSl.png)
+
+![userinfo.png](https://s2.loli.net/2022/06/03/YDArcEuLqzP6M7d.png)
+
+![debug.png](https://s2.loli.net/2022/06/03/ALIwj9O4cRXbDsZ.png)
