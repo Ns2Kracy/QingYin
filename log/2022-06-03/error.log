@@ -1,0 +1,21 @@
+[QinDouYin/Jaki]2022/06/03 - 01:16:22.886	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:17:03.453	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:20:24.465	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:76	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:20:36.143	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:76	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:25:57.248	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:74	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:28:04.726	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:74	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:30:22.116	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:69	用户信息	{"username": ""}
+[QinDouYin/Jaki]2022/06/03 - 01:30:22.117	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:74	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:31:48.355	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:69	用户信息	{"username": "make"}
+[QinDouYin/Jaki]2022/06/03 - 01:32:15.727	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:35:33.812	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:69	用户信息	{"username": "jack"}
+[QinDouYin/Jaki]2022/06/03 - 01:35:40.175	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "record not found"}
+[QinDouYin/Jaki]2022/06/03 - 01:35:48.674	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:36:15.475	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:37:18.443	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:69	用户信息	{"username": "jack"}
+[QinDouYin/Jaki]2022/06/03 - 01:37:18.444	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:74	注册失败!	{"error": "用户名已注册"}
+[QinDouYin/Jaki]2022/06/03 - 01:37:29.132	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:47	登陆失败! 用户名不存在或者密码错误!	{"username:": "jack"}
+[QinDouYin/Jaki]2022/06/03 - 01:37:29.133	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:51	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:39:47.140	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/service/sys_user.go:38	登陆失败! 用户名不存在或者密码错误!	{"username:": "jack"}
+[QinDouYin/Jaki]2022/06/03 - 01:39:47.141	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:50	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
+[QinDouYin/Jaki]2022/06/03 - 01:44:33.946	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:32	获取失败!	{"error": "Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? AND `sys_users`.`deleted_at` IS NULL ORDER BY `sys_users`.`id` LIMIT 1' at line 1"}
