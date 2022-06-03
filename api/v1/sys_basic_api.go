@@ -41,7 +41,7 @@ func (b *basicApi) UserInfo(c *gin.Context) {
 	}
 }
 
-//用户登录
+//用户登录返回d以及Token
 func (b *basicApi) Login(c *gin.Context) {
 	var l request.LoginRequest
 	_ = c.ShouldBind(&l)
@@ -100,8 +100,43 @@ func (b *basicApi) tokenIssue(c *gin.Context, user model.SysUser) (error, string
 	return err, token
 }
 
+//视频投稿返回是否成功
 func (b *basicApi) Publish(c *gin.Context) {
-	c.JSON(http.StatusOK, "测试/publish/action/接口")
+	var videoReq request.PublishActionRequest
+	_ = c.ShouldBind(videoReq)
+	var sysVideo model.SysVideo
+
+	//确定视频标题信息
+	sysVideo.VideoTitle = videoReq.Title
+
+	//从Token中确定作者信息
+	j := utils.NewJWT()
+	claims, Parserr := j.ParseToken(videoReq.Token)
+	if Parserr != nil {
+		global.GVA_LOG.Error("解析Token失败", zap.Error(Parserr))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "解析Token失败"}
+		c.JSON(http.StatusOK, response.PublishActionResponse{Status: status})
+		return
+	}
+	sysVideo.UserRefer = claims.UserId //赋予作者
+
+	//上传视频并保存信息至数据库
+	_, header, err := c.Request.FormFile("file")
+	if err != nil {
+		global.GVA_LOG.Error("接收文件失败!", zap.Error(err))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "上传文件失败"}
+		c.JSON(http.StatusOK, response.PublishActionResponse{Status: status})
+		return
+	}
+	pErr := publishService.Action(header, &sysVideo) //考虑用videoReq.Data()替代
+	if pErr != nil {
+		global.GVA_LOG.Error("上传文件失败!", zap.Error(err))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "上传文件失败"}
+		c.JSON(http.StatusOK, response.PublishActionResponse{Status: status})
+		return
+	}
+	status := response.Status{StatusCode: SUCCESS, StatusMsg: "上传文件成功"}
+	c.JSON(http.StatusOK, response.PublishActionResponse{Status: status})
 }
 
 func (b *basicApi) PublishList(c *gin.Context) {

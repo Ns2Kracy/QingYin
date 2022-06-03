@@ -17,11 +17,11 @@ const (
 func JWTAuth() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		requestPath := ctx.Request.URL.Path
-		//若请求路径为/douyin/feed则直接放行
 
-		if strings.Contains(requestPath, "/douyin/feed") ||
-			strings.Contains(requestPath, "/douyin/user/register") ||
-			strings.Contains(requestPath, "/douyin/user/login") {
+		//放行规则
+		if strings.Contains(requestPath, "/douyin/feed/") ||
+			strings.Contains(requestPath, "/douyin/user/register/") ||
+			strings.Contains(requestPath, "/douyin/user/login/") {
 			ctx.Next()
 			return
 		}
