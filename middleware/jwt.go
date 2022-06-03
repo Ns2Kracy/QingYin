@@ -4,6 +4,7 @@ import (
 	"QingYin/model/system/response"
 	"QingYin/utils"
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,15 +18,16 @@ func JWTAuth() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		requestPath := ctx.Request.URL.Path
 		//若请求路径为/douyin/feed则直接放行
-		if requestPath == "/douyin/feed" ||
-			requestPath == "/douyin/user/register" ||
-			requestPath == "/douyin/user/login" {
+
+		if strings.Contains(requestPath, "/douyin/feed") ||
+			strings.Contains(requestPath, "/douyin/user/register") ||
+			strings.Contains(requestPath, "/douyin/user/login") {
 			ctx.Next()
 			return
 		}
 
-		//从Header请求头中获取token字符串
-		token := ctx.Request.Header.Get("x-token")
+		//请求参数中获取token
+		token := ctx.Query("token")
 
 		//为空则中断
 		if token == "" {

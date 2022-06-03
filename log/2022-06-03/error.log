@@ -19,3 +19,4 @@
 [QinDouYin/Jaki]2022/06/03 - 01:39:47.140	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/service/sys_user.go:38	登陆失败! 用户名不存在或者密码错误!	{"username:": "jack"}
 [QinDouYin/Jaki]2022/06/03 - 01:39:47.141	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:50	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}
 [QinDouYin/Jaki]2022/06/03 - 01:44:33.946	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:32	获取失败!	{"error": "Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? AND `sys_users`.`deleted_at` IS NULL ORDER BY `sys_users`.`id` LIMIT 1' at line 1"}
+[QinDouYin/Jaki]2022/06/03 - 11:49:07.651	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:72	注册失败!	{"error": "用户名已注册"}

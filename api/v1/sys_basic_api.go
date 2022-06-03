@@ -14,6 +14,7 @@ import (
 
 type basicApi struct{}
 
+//响应状态
 const (
 	ERROR   = 7
 	SUCCESS = 0
@@ -21,7 +22,7 @@ const (
 
 //相当于controller层,调用service层方法实现业务逻辑
 func (b *basicApi) Feed(c *gin.Context) {
-	status := response.Status{StatusCode: 1, StatusMsg: "访问视频Feed流成功"}
+	status := response.Status{StatusCode: SUCCESS, StatusMsg: "访问视频Feed流成功"}
 	c.JSON(http.StatusOK, response.FeedResponse{Status: status})
 }
 
@@ -61,7 +62,7 @@ func (b *basicApi) Login(c *gin.Context) {
 	}
 }
 
-//用户注册
+//用户注册返回id以及Token
 func (b *basicApi) Register(c *gin.Context) {
 	var r request.RegisterRequest
 	_ = c.ShouldBind(&r)
