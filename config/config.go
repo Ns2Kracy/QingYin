@@ -1,29 +1,12 @@
+//总配置结构体
 package config
 
-import (
-	"encoding/json"
-	"os"
-)
-
-type QingYin struct {
-	AppName    string `json:"app_name"`
-	Port       string `json:"port"`
-	StaticPath string `json:"static_path"`
-	Mode       string `json:"mode"`
-	MySQL      MySQL  `json:"mysql"`
-	Redis      Redis  `json:"redis"`
-}
-
-func InitConfig() *QingYin {
-	var config *QingYin
-	file, err := os.Open("./config.json")
-	if err != nil {
-		panic(err.Error())
-	}
-	decoder := json.NewDecoder(file)
-	err = decoder.Decode(&config)
-	if err != nil {
-		panic(err.Error())
-	}
-	return config
+type Server struct {
+	JWT    JWT    `mapstructure:"jwt" json:"jwt" yaml:"jwt"`
+	Zap    Zap    `mapstructure:"zap" json:"zap" yaml:"zap"`
+	System System `mapstructure:"system" json:"system" yaml:"system"`
+	// gorm
+	Mysql MySql `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
+	// oss
+	Local Local `mapstructure:"local" json:"local" yaml:"local"`
 }

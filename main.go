@@ -1,23 +1,26 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"QingYin/core"
+	"QingYin/global"
+	"QingYin/initialize"
 
-	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 func main() {
-	// 1.创建路由
-	r := gin.Default()
-	// 2.绑定路由规则，执行的函数
-	// gin.Context，封装了request和response
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello EndeavourOS!")
-	})
-	// 3.监听端口，默认在8080
-	// Run("里面不指定端口号默认为8080")
-	r.Run(":8000")
+	global.GVA_VP = core.Viper() //初始化Viper
+	global.GVA_LOG = core.Zap()  //初始化zap日志库
+	zap.ReplaceGlobals(global.GVA_LOG)
+	global.GVA_DB = initialize.GormMysql() //gorm连接MySQL数据库
+	if global.GVA_DB != nil {
+		//创建数据库表
+		initialize.RegisterTables(global.GVA_DB)
+		//延迟关闭数据库
+		db, _ := global.GVA_DB.DB()
+		defer db.Close()
+	}
 
-	fmt.Println("Hello,EndeavourOS")
+	//运行服务
+	core.RunServer()
 }
