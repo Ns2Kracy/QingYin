@@ -36,9 +36,26 @@
 
 [相关项目](https://github.com/flipped-aurora/gin-vue-admin.git)
 
-## 5.31-6.1测试访问接口结果：
+## 5.31-6.1测试访问接口结果
 
+![image-20220601002408274.png](https://s2.loli.net/2022/06/02/IB84bySNMqTWX3P.png)
+=======
 ![image-20220601002408274](https://s2.loli.net/2022/06/01/ld5gOEVLxCpUZsR.png)
 
 **并未实现业务逻辑，只是进行了伪数据测试**
 
+## 6.1-6.2数据库结构搭建
+
+![image-20220602012937404.png](https://s2.loli.net/2022/06/02/SUCMiGgj7YnIhPy.png)
+
+![image-20220602013202537.png](https://s2.loli.net/2022/06/02/r7FaAnNHQoUiqhS.png)
+
+## 6.2-6.3用户业务逻辑实现
+
+![register.png](https://s2.loli.net/2022/06/03/13siChgURbXFw9v.png)
+
+![login.png](https://s2.loli.net/2022/06/03/WHEznYVQ2ob8gSl.png)
+
+![userinfo.png](https://s2.loli.net/2022/06/03/YDArcEuLqzP6M7d.png)
+
+![debug.png](https://s2.loli.net/2022/06/03/ALIwj9O4cRXbDsZ.png)
