@@ -7,6 +7,8 @@ import (
 	"QingYin/model/system/response"
 	"QingYin/utils"
 	"net/http"
+	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -21,9 +23,79 @@ const (
 )
 
 //相当于controller层,调用service层方法实现业务逻辑
+
+//生成用户返回信息:::::仅限内部调用
+func (*basicApi) userInfoResponse(userId uint) (error, response.User) {
+	//获取用户信息
+	err, userInfo := userService.GetUserInfo(userId)
+	if err != nil {
+		global.GVA_LOG.Error("获取用户信息失败!", zap.Error(err))
+		return err, response.User{}
+	}
+	//用户返回信息
+	userRet := response.User{
+		ID:            userInfo.ID,
+		Username:      userInfo.Username,
+		FollowCount:   int64(userInfo.FollowCount),
+		FollowerCount: int64(userInfo.FollowerCount),
+		IsFollow:      false}
+	return nil, userRet
+}
+
+//获取视频流信息>>>>未测试<<<<<测试通过
 func (b *basicApi) Feed(c *gin.Context) {
-	status := response.Status{StatusCode: SUCCESS, StatusMsg: "访问视频Feed流成功"}
-	c.JSON(http.StatusOK, response.FeedResponse{Status: status})
+	var feedReq request.FeedRequest
+	//绑定请求参数
+	_ = c.ShouldBind(&feedReq)
+
+	//默认当前时间
+	if feedReq.LatestTime == "" {
+		feedReq.LatestTime = time.Now().Format("2006-01-02 15:04:05")
+	} else {
+		//时间戳转换
+		value, _ := strconv.ParseInt(feedReq.LatestTime, 10, 64)
+		feedReq.LatestTime = time.Unix(value, 0).Format("2006-01-02 15:04:05")
+	}
+
+	//获取视频信息
+	videoList, getErr := feedService.GetVideoFeed(feedReq.LatestTime)
+	if getErr != nil {
+		global.GVA_LOG.Error("获取视频流失败!", zap.Error(getErr))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "获取视频流失败"}
+		c.JSON(http.StatusOK, response.FeedResponse{Status: status, NextTime: 0, VideoList: nil})
+		return
+	}
+
+	var videos []response.Video
+	//生成视频返回信息
+	for _, video := range videoList {
+		//生成视频用户信息
+		err, userRet := b.userInfoResponse(video.UserRefer)
+		if err != nil {
+			global.GVA_LOG.Error("获取用户信息失败!", zap.Error(getErr))
+			status := response.Status{StatusCode: ERROR, StatusMsg: "获取用户信息失败"}
+			c.JSON(http.StatusOK, response.FeedResponse{Status: status, NextTime: 0, VideoList: nil})
+			return
+		}
+
+		//生成视频返回信息
+		v := response.Video{
+			ID:            video.ID,
+			Title:         video.VideoTitle,
+			Author:        userRet,
+			PlayURL:       video.PlayURL,
+			CoverURL:      video.CoverURL,
+			FavoriteCount: int(video.FavoriteCount),
+			CommentCount:  int(video.CommentCount),
+			IsFavorite:    false}
+
+		//追加视频信息
+		videos = append(videos, v)
+	}
+
+	//成功返回
+	status := response.Status{StatusCode: SUCCESS, StatusMsg: "Feed流获取成功"}
+	c.JSON(http.StatusOK, response.FeedResponse{Status: status, NextTime: int(videoList[0].CreatedAt.Unix()), VideoList: videos})
 }
 
 //用户信息获取:::::::::::未实现is_follow功能
@@ -142,6 +214,55 @@ func (b *basicApi) Publish(c *gin.Context) {
 	c.JSON(http.StatusOK, response.PublishActionResponse{Status: status})
 }
 
+//获取发布列表:::::::::::未实现is_follow功能>>>>未测试<<<<<<测试通过
 func (b *basicApi) PublishList(c *gin.Context) {
-	c.JSON(http.StatusOK, "测试/publish/list/接口")
+	var listReq request.PublishListRequest
+	_ = c.ShouldBind(&listReq)
+
+	videoList, getErr := publishService.GetPublishList(listReq.UserID)
+
+	//获取用户信息
+	err, userInfo := userService.GetUserInfo(listReq.UserID)
+	if err != nil {
+		global.GVA_LOG.Error("获取用户信息失败!", zap.Error(getErr))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "获取用户信息失败"}
+		c.JSON(http.StatusOK, response.PublishListResponse{Status: status, VideoList: nil})
+		return
+	}
+
+	//用户返回信息
+	userRet := response.User{
+		ID:            userInfo.ID,
+		Username:      userInfo.Username,
+		FollowCount:   int64(userInfo.FollowCount),
+		FollowerCount: int64(userInfo.FollowerCount),
+		IsFollow:      false}
+
+	//获取失败直接返回
+	if getErr != nil {
+		global.GVA_LOG.Error("获取成功失败!", zap.Error(getErr))
+		status := response.Status{StatusCode: ERROR, StatusMsg: "获取成功失败"}
+		c.JSON(http.StatusOK, response.PublishListResponse{Status: status, VideoList: nil})
+		return
+	}
+
+	//视频返回信息
+	var videos []response.Video
+	for _, video := range videoList {
+		v := response.Video{
+			ID:            video.ID,
+			Title:         video.VideoTitle,
+			Author:        userRet,
+			PlayURL:       video.PlayURL,
+			CoverURL:      video.CoverURL,
+			FavoriteCount: int(video.FavoriteCount),
+			CommentCount:  int(video.CommentCount),
+			IsFavorite:    false}
+
+		//追加视频信息
+		videos = append(videos, v)
+	}
+
+	status := response.Status{StatusCode: SUCCESS, StatusMsg: "获取成功"}
+	c.JSON(http.StatusOK, response.PublishListResponse{Status: status, VideoList: videos})
 }

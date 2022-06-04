@@ -4,3 +4,5 @@
 [QinDouYin/Jaki]2022/06/04 - 13:45:17.407	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/service/sys_publish.go:51	Transfer Image Failed	{"err": "exit status 1"}
 [QinDouYin/Jaki]2022/06/04 - 13:45:17.408	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/service/sys_publish.go:34	Generate CoverURL Failed	{"err": "exit status 1"}
 [QinDouYin/Jaki]2022/06/04 - 13:45:17.409	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:136	上传文件失败!
+[QinDouYin/Jaki]2022/06/04 - 17:07:26.608	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:119	登陆失败! 用户名不存在或者密码错误!	{"error": "record not found"}
+[QinDouYin/Jaki]2022/06/04 - 17:07:50.979	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_basic_api.go:119	登陆失败! 用户名不存在或者密码错误!	{"error": "用户密码错误"}

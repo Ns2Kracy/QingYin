@@ -67,3 +67,14 @@ func (*PublishService) generateCoverURL(videoPath string) (string, error) {
 	return "https://" + coverURL, nil
 
 }
+
+//获取用户发布视频列表
+func (*PublishService) GetPublishList(userId uint) ([]model.SysVideo, error) {
+	var video []model.SysVideo
+	err := global.GVA_DB.Where("user_refer = ?", userId).Find(&video).Error
+	if err != nil {
+		global.GVA_LOG.Error("查询失败", zap.Error(err))
+		return video, err
+	}
+	return video, nil
+}

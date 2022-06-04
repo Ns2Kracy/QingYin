@@ -48,3 +48,33 @@
 [QinDouYin/Jaki]2022/06/04 - 13:53:44.010	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
 [QinDouYin/Jaki]2022/06/04 - 13:53:44.010	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
 [QinDouYin/Jaki]2022/06/04 - 13:53:44.024	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:05:46.966	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:05:46.967	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:05:46.967	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:05:46.968	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:05:46.974	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:14:41.801	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:14:41.802	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:14:41.802	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:14:41.802	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:14:41.812	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:18:25.955	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:18:25.956	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:18:25.956	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:18:25.956	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:18:25.969	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:19:15.245	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:19:15.246	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:19:15.246	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:19:15.247	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:19:15.256	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:37:43.112	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:37:43.113	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:37:43.114	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:37:43.114	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:37:43.128	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/04 - 17:42:47.069	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/04 - 17:42:47.070	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/04 - 17:42:47.070	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/04 - 17:42:47.071	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:35	router register success
+[QinDouYin/Jaki]2022/06/04 - 17:42:47.084	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
