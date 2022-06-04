@@ -59,3 +59,15 @@
 ![userinfo.png](https://s2.loli.net/2022/06/03/YDArcEuLqzP6M7d.png)
 
 ![debug.png](https://s2.loli.net/2022/06/03/ALIwj9O4cRXbDsZ.png)
+
+
+
+# 6月4日基础接口开发完毕(BUG另说)
+
+![视频Feed.jpg](https://s2.loli.net/2022/06/04/aKgMRbBjx2Wirs3.jpg)
+
+![作品列表.jpg](https://s2.loli.net/2022/06/04/BjxFDNLvt9dZV27.jpg)
+
+![上传.jpg](https://s2.loli.net/2022/06/04/YvW9dpT2R8Oq5Fr.jpg)
+
+![发布列表.jpg](https://s2.loli.net/2022/06/04/8tSIZV73xPHMQRd.jpg)
