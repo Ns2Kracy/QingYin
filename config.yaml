@@ -9,7 +9,7 @@ jwt:
 zap:
   level: 'info'
   format: 'console'
-  prefix: '[QinDouYin/Jaki]'
+  prefix: '[QinDouYin/ns2kracy]'
   director: 'log'
   show-line: true
   encode-level: 'LowercaseColorLevelEncoder'
@@ -21,7 +21,7 @@ system:
   env: 'develop'  # Change to "develop" to skip authentication for development mode
   addr: 8080
   db-type: 'mysql'
-  oss-type: 'local'    # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
+  oss-type: 'local'    # 控制oss选择走本地还是 aliyun-oss
   use-redis: false     # 使用redis
   use-multipoint: false
   # IP限制次数 一个小时15000次
@@ -33,7 +33,7 @@ system:
 mysql:
   path: 'localhost'
   port: '3306'
-  db-name: 'douyin'
+  db-name: 'qingyin'
   config: 'charset=utf8&parseTime=True&loc=Local'
   username: 'root'
   password: 'root'
@@ -45,3 +45,13 @@ mysql:
 # local configuration
 local:
   path: 'uploads/file'
+
+
+# aliyun oss configuration
+aliyun-oss:
+  endpoint: ''
+  access-key-id: ''
+  access-key-secret: ''
+  bucket-name: ''
+  bucket-url: ''
+  base-path: ''
