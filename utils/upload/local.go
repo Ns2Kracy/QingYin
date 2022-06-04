@@ -74,7 +74,7 @@ func (*Local) UploadFile(file *multipart.FileHeader) (string, string, error) {
 //@author [Mr-Jacks520](https://github.com/Mr-Jacks520)
 //@object: *Local
 //@function: UploadImage
-//@description: 上传图片
+//@description: 上传图片>>>>>>>>>>>>>>>>>>未实现
 //@param: file *multipart.FileHeader
 //@return: string, string, error
 func (*Local) UploadImage(buf io.Reader) (string, string, error) {

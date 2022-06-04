@@ -5,6 +5,7 @@ import (
 	"errors"
 	"io"
 	"mime/multipart"
+	"strconv"
 	"time"
 
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
@@ -69,7 +70,7 @@ func (*AliyunOSS) UploadImage(buf io.Reader) (string, string, error) {
 	}
 
 	//上传阿里云OSS路径
-	yunUploadPath := global.GVA_CONFIG.AliyunOSS.BasePath + "/" + "snapshots" + "/" + time.Now().Format("2006-01-02") + "_snapshot" + ".jpg"
+	yunUploadPath := global.GVA_CONFIG.AliyunOSS.BasePath + "/" + "snapshots" + "/" + strconv.FormatInt(time.Now().Unix(), 10) + "_snapshot" + ".jpg"
 
 	//上传文件流
 	upErr := bucket.PutObject(yunUploadPath, buf)

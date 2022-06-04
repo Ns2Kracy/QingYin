@@ -21,7 +21,7 @@ system:
   env: 'develop'  # Change to "develop" to skip authentication for development mode
   addr: 8080
   db-type: 'mysql'
-  oss-type: 'aliyun-oss'    # 控制oss选择走本地还是 aliyun-oss
+  oss-type: 'local'    # 控制oss选择走本地还是 aliyun-oss
   use-redis: false     # 使用redis
   use-multipoint: false
   # IP限制次数 一个小时15000次

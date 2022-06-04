@@ -8,5 +8,5 @@ type PublishActionResponse struct {
 //发布列表接口响应
 type PublishListResponse struct {
 	Status            //状态信息
-	VideoList []Video //视频列表
+	VideoList []Video `json:"video_list"` //视频列表
 }
