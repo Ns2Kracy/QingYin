@@ -27,7 +27,15 @@ func JWTAuth() gin.HandlerFunc {
 		}
 
 		//请求参数中获取token
-		token := ctx.Query("token")
+		token_GET := ctx.Query("token")
+		token_POST := ctx.Request.FormValue("token")
+
+		token := ""
+		if token_GET == "" {
+			token = token_POST
+		} else {
+			token = token_GET
+		}
 
 		//为空则中断
 		if token == "" {

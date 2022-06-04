@@ -103,7 +103,9 @@ func (b *basicApi) tokenIssue(c *gin.Context, user model.SysUser) (error, string
 //视频投稿返回是否成功
 func (b *basicApi) Publish(c *gin.Context) {
 	var videoReq request.PublishActionRequest
-	_ = c.ShouldBind(videoReq)
+	videoReq.Title = c.Request.FormValue("title")
+	videoReq.Token = c.Request.FormValue("token")
+	// videoReq.Data = c.Request.FormFile("data")
 	var sysVideo model.SysVideo
 
 	//确定视频标题信息
@@ -121,7 +123,8 @@ func (b *basicApi) Publish(c *gin.Context) {
 	sysVideo.UserRefer = claims.UserId //赋予作者
 
 	//上传视频并保存信息至数据库
-	_, header, err := c.Request.FormFile("file")
+	_, header, err := c.Request.FormFile("data")
+	// c.Get("claims")	//保留节目
 	if err != nil {
 		global.GVA_LOG.Error("接收文件失败!", zap.Error(err))
 		status := response.Status{StatusCode: ERROR, StatusMsg: "上传文件失败"}

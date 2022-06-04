@@ -78,6 +78,14 @@ func (*AliyunOSS) UploadImage(buf io.Reader) (string, string, error) {
 		return "", "", errors.New("function formUploader.Put() Failed, err:" + err.Error())
 	}
 
+	//设置请求头ContentType类型避免访问URL时直接下载
+	options := oss.ContentType("image/jpg")
+	err = bucket.SetObjectMeta(yunUploadPath, options)
+	if err != nil {
+		global.GVA_LOG.Error("function bucket.SetObjectMeta() Failed", zap.Any("err", err.Error()))
+		return "", "", errors.New("function bucket.SetObjectMeta() Failed, err:" + err.Error())
+	}
+
 	return global.GVA_CONFIG.AliyunOSS.BucketUrl + "/" + yunUploadPath, yunUploadPath, nil
 }
 

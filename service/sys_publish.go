@@ -28,8 +28,8 @@ func (p *PublishService) Action(file *multipart.FileHeader, video *model.SysVide
 		global.GVA_LOG.Error("Action Failed", zap.Any("err", upErr.Error()))
 		return upErr
 	}
-	video.PlayURL = playURL                         //设置播放地址
-	coverURL, Generr := p.generateCoverURL(playURL) //生成缩略图
+	video.PlayURL = "https://" + playURL                  //设置播放地址
+	coverURL, Generr := p.generateCoverURL(video.PlayURL) //生成缩略图
 	if Generr != nil {
 		global.GVA_LOG.Error("Generate CoverURL Failed", zap.Any("err", Generr.Error()))
 		return Generr
@@ -64,6 +64,6 @@ func (*PublishService) generateCoverURL(videoPath string) (string, error) {
 		global.GVA_LOG.Error("Upload Image Failed", zap.Any("err", upErr.Error()))
 		return "", upErr
 	}
-	return coverURL, nil
+	return "https://" + coverURL, nil
 
 }
