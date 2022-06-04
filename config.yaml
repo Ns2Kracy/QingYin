@@ -49,9 +49,9 @@ local:
 
 # aliyun oss configuration
 aliyun-oss:
-  endpoint: 'oss-cn-chengdu.aliyuncs.com'
-  access-key-id: 'LTAI5tQXPfyYRSeDyBjjk6W3'
-  access-key-secret: 'czJrzYBx6cNvG0GTfMOhtFr7YJd71K'
-  bucket-name: 'qingyin-video'
-  bucket-url: 'qingyin-video.oss-cn-chengdu.aliyuncs.com'
-  base-path: 'videos'
+  endpoint: ''
+  access-key-id: ''
+  access-key-secret: ''
+  bucket-name: ''
+  bucket-url: ''
+  base-path: ''
