@@ -14,6 +14,17 @@ require (
 require github.com/golang-jwt/jwt v3.2.2+incompatible
 
 require (
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.4+incompatible // indirect
+	github.com/aws/aws-sdk-go v1.44.27 // indirect
+	github.com/disintegration/imaging v1.6.2 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/u2takey/ffmpeg-go v0.4.1 // indirect
+	github.com/u2takey/go-utils v0.3.1 // indirect
+	golang.org/x/image v0.0.0-20220601225756-64ec528b34cd // indirect
+	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
+)
+
+require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.0
 	github.com/go-playground/locales v0.14.0 // indirect
