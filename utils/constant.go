@@ -1,5 +1,5 @@
 package utils
 
 const (
-	ConfigFile = "config.yaml"
+	ConfigFile = "config-dev.yaml"
 )
