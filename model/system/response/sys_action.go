@@ -10,3 +10,7 @@ type PublishListResponse struct {
 	Status            //状态信息
 	VideoList []Video `json:"video_list"` //视频列表
 }
+
+type FavoriteActionResponse struct {
+	Status //状态信息
+}

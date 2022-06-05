@@ -27,3 +27,35 @@ func (*FeedService) GetVideoFeed(last_time string) ([]model.SysVideo, error) {
 	}
 	return videos, nil
 }
+
+func (s *FeedService) LikeVideo(VedioId uint) error {
+	var video model.SysVideo
+	err := global.GVA_DB.First(&video, VedioId).Error
+	if err != nil {
+		global.GVA_LOG.Error("查询视频信息失败", zap.Error(err))
+		return err
+	}
+	video.FavoriteCount++
+	err = global.GVA_DB.Save(&video).Error
+	if err != nil {
+		global.GVA_LOG.Error("点赞失败", zap.Error(err))
+		return err
+	}
+	return nil
+}
+
+func (s *FeedService) UnLikeVideo(VedioId uint) error {
+	var video model.SysVideo
+	err := global.GVA_DB.First(&video, VedioId).Error
+	if err != nil {
+		global.GVA_LOG.Error("查询视频信息失败", zap.Error(err))
+		return err
+	}
+	video.FavoriteCount--
+	err = global.GVA_DB.Save(&video).Error
+	if err != nil {
+		global.GVA_LOG.Error("取消点赞失败", zap.Error(err))
+		return err
+	}
+	return nil
+}
