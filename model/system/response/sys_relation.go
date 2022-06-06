@@ -8,11 +8,11 @@ type FocusActionResponse struct {
 //关注列表接口响应
 type FollowListResponse struct {
 	Status
-	UserList []User `form:"user_list"` //用户信息列表
+	UserList []User `json:"user_list"` //用户信息列表
 }
 
 //粉丝列表接口响应
 type FollowerListResponse struct {
 	Status
-	UserList []User `form:"user_list"` //用户信息列表
+	UserList []User `json:"user_list"` //用户信息列表
 }

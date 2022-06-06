@@ -52,7 +52,7 @@ func (*RelationService) UnFocus(UserId uint, ToUserID uint) error {
 		return UpMainErr
 	}
 
-	UpSlavErr := global.GVA_DB.Model(&model.SysUser{}).Where("id = ?", ToUserID).Update("follower_count", gorm.Expr("follow_count - ?", 1)).Error
+	UpSlavErr := global.GVA_DB.Model(&model.SysUser{}).Where("id = ?", ToUserID).Update("follower_count", gorm.Expr("follower_count - ?", 1)).Error
 	if UpSlavErr != nil {
 		global.GVA_LOG.Error("Update Slave Focus relation Failed", zap.Error(UpSlavErr))
 		return UpSlavErr

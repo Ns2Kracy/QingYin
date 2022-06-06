@@ -18,7 +18,7 @@ const (
 	unfocus_action = 2 //取消关注
 )
 
-//关注操作
+//关注操作>>>>>>>>>>未测试<<<<<<<<<<<postman测试通过
 func (*extraApi_2) Relation(c *gin.Context) {
 	var foucusActionReq request.FocusActionRequest
 	_ = c.ShouldBind(&foucusActionReq)
@@ -49,7 +49,7 @@ func (*extraApi_2) Relation(c *gin.Context) {
 	}
 }
 
-// 关注列表>>>>>>>>>>未测试
+// 关注列表>>>>>>>>>>未测试<<<<<<<<<postman测试通过
 func (*extraApi_2) FollowList(c *gin.Context) {
 	var followListReq request.FollowListRequest
 	_ = c.ShouldBind(&followListReq)
@@ -78,7 +78,7 @@ func (*extraApi_2) FollowList(c *gin.Context) {
 	c.JSON(http.StatusOK, response.FollowListResponse{Status: status, UserList: users})
 }
 
-// 粉丝列表>>>>>>>>>>未测试
+// 粉丝列表>>>>>>>>>>未测试<<<<<<<<<postman测试通过
 func (*extraApi_2) FollowerList(c *gin.Context) {
 	var followerListReq request.FollowerListRequest
 	_ = c.ShouldBind(&followerListReq)

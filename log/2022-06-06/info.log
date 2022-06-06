@@ -1,0 +1,15 @@
+[QinDouYin/Jaki]2022/06/06 - 12:49:31.290	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/06 - 12:49:31.292	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/06 - 12:49:31.292	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/06 - 12:49:31.294	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:32	router register success
+[QinDouYin/Jaki]2022/06/06 - 12:49:31.298	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/06 - 12:54:28.807	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/06 - 12:54:28.807	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/06 - 12:54:28.807	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/06 - 12:54:28.808	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:32	router register success
+[QinDouYin/Jaki]2022/06/06 - 12:54:28.816	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
+[QinDouYin/Jaki]2022/06/06 - 12:59:29.871	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/gorm_mysql.go:51	register table success
+[QinDouYin/Jaki]2022/06/06 - 12:59:29.872	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:18	文件上传路径:	{"filePath:": "uploads/file"}
+[QinDouYin/Jaki]2022/06/06 - 12:59:29.872	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:20	use middleware logger
+[QinDouYin/Jaki]2022/06/06 - 12:59:29.873	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/initialize/router.go:32	router register success
+[QinDouYin/Jaki]2022/06/06 - 12:59:29.874	[34minfo[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/core/server.go:26	server run success on 	{"address": ":8080"}
