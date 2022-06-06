@@ -12,8 +12,8 @@ type extraApi_2Router struct{}
 func (ex *extraApi_1Router) InitExtraApi_2Router(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{
-		Router.POST("/douyin/relation/action/", api.Relation)
-		Router.GET("/douyin/relation/follow/list/", api.FollowList)
-		Router.GET("/douyin/relation/follower/list/", api.FollowerList)
+		Router.POST("relation/action/", api.Relation)
+		Router.GET("/relation/follow/list/", api.FollowList)
+		Router.GET("/relation/follower/list/", api.FollowerList)
 	}
 }

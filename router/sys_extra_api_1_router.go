@@ -12,9 +12,9 @@ type extraApi_1Router struct{}
 func (ex *extraApi_1Router) InitExtraApi_1Router(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{
-		Router.POST("/douyin/favorite/action/", api.FavoriteAction)
-		Router.GET("/douyin/favorite/list/", api.FavoriteList)
-		Router.POST("/douyin/comment/action/", api.CommentAction)
-		Router.GET("/douyin/comment/list/", api.CommentList)
+		Router.POST("/favorite/action/", api.FavoriteAction)
+		Router.GET("/favorite/list/", api.FavoriteList)
+		Router.POST("/comment/action/", api.CommentAction)
+		Router.GET("/comment/list/", api.CommentList)
 	}
 }
