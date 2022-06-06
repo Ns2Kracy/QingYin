@@ -52,11 +52,6 @@ func (*PublishService) generateCoverURL(videoPath string) (string, error) {
 		return "", err
 	}
 
-	// img, err := imaging.Decode(buf)
-	// if err != nil {
-	// 	return "", err
-	// }
-
 	//图片上传
 	oss := upload.NewOss()
 	coverURL, _, upErr := oss.UploadImage(buf)

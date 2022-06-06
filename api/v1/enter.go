@@ -14,6 +14,8 @@ var (
 	feedService     = service.ServiceGroups.FeedService
 	publishService  = service.ServiceGroups.PublishService
 	relationService = service.ServiceGroups.RelationService
+	favoriteService = service.ServiceGroups.FavoriteService
+	commentService  = service.ServiceGroups.CommentService
 )
 
 var ApiGroups = new(ApiGroup)

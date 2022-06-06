@@ -5,6 +5,8 @@ type ServiceGroup struct {
 	FeedService
 	PublishService
 	RelationService
+	FavoriteService
+	CommentService
 }
 
 var ServiceGroups = new(ServiceGroup)
