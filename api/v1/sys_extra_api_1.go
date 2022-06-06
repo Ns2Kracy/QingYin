@@ -51,7 +51,7 @@ func (*extraApi_1) FavoriteAction(c *gin.Context) {
 	req.Video, _ = utils.StringToUint(video_id)
 	// 然后获取action_type
 	action_type := c.Query("action_type")
-	req.Action_type, _ = utils.StringToUint(action_type)
+	req.ActionType, _ = utils.StringToUint(action_type)
 
 	// 判断action_type是否为空
 	if action_type == "" {
@@ -60,7 +60,7 @@ func (*extraApi_1) FavoriteAction(c *gin.Context) {
 		return
 	}
 	// 判断action_type如果为1，则点赞，如果为2，则取消点赞
-	if req.Action_type == uint(action_type_like) {
+	if req.ActionType == uint(action_type_like) {
 		// 点赞
 		err := feedService.LikeVideo(req.Token, req.Video)
 		if err != nil {
@@ -69,7 +69,7 @@ func (*extraApi_1) FavoriteAction(c *gin.Context) {
 		}
 		c.JSON(http.StatusOK, response.Status{StatusCode: SUCCESS, StatusMsg: "点赞成功"})
 	}
-	if req.Action_type == uint(action_type_unlike) {
+	if req.ActionType == uint(action_type_unlike) {
 		// 取消点赞
 		err := feedService.UnLikeVideo(req.Token, req.Video)
 		if err != nil {
@@ -86,7 +86,50 @@ func (*extraApi_1) FavoriteList(c *gin.Context) {
 
 // 评论操作
 func (*extraApi_1) CommentAction(c *gin.Context) {
+	var req request.CommentActionRequest
+	// 先获取token
+	token := c.Query("token")
+	// 判断token是否为空
+	if token == "" {
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "token为空"})
+		global.GVA_LOG.Info("token为空")
+		return
+	}
+	// 解析token
+	j := utils.NewJWT()
+	_, err := j.ParseToken(token)
+	if err != nil {
+		// 过期中断
+		if err == utils.TokenExpired {
+			c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "token过期"})
+			global.GVA_LOG.Error("token过期", zap.Error(err))
+			return
+		}
+		// 其他错误
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: err.Error()})
+		global.GVA_LOG.Error("token解析失败", zap.Error(err))
+		return
+	}
+	req.Token = token
+	// 获取视频id
+	video_id := c.Query("video_id")
+	req.Video, _ = utils.StringToUint(video_id)
+	// 然后获取action_type
+	action_type := c.Query("action_type")
+	req.ActionType, _ = utils.StringToUint(action_type)
+	// 判断action_type是否为空
+	if action_type == "" {
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "action_type为空"})
+		global.GVA_LOG.Info("action_type为空")
+		return
+	}
+	// 判断action_type如果为1，则发布评论，如果为2，则删除评论
+	if req.ActionType == uint(action_type_comment) {
 
+	}
+	if req.ActionType == uint(action_type_del_comment) {
+
+	}
 }
 
 // 查看评论列表，按时间排序
