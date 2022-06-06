@@ -29,7 +29,7 @@ func InitRouter() *gin.Engine {
 	apiRouter.Use(middleware.JWTAuth())
 	{
 		router.ApiRouters.InitBasicRouter(apiRouter)
-		// router.ApiRouters.InitExtraApi_1Router(apiRouter)
+		router.ApiRouters.InitExtraApi_1Router(apiRouter)
 		// router.ApiRouters.InitExtraApi_2Router(apiRouter)
 	}
 	global.GVA_LOG.Info("router register success")

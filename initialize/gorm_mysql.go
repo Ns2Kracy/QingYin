@@ -42,6 +42,8 @@ func RegisterTables(db *gorm.DB) {
 		&model.SysUser{},
 		&model.SysVideo{},
 		&model.UserCommentVideo{},
+		&model.UserFavoriteVideo{},
+		&model.UserCommentVideoModel{},
 	)
 
 	if err != nil {

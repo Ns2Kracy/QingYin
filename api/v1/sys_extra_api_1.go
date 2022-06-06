@@ -4,6 +4,7 @@ import (
 	"QingYin/global"
 	"QingYin/model/system/request"
 	"QingYin/model/system/response"
+	"QingYin/utils"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"
@@ -18,36 +19,65 @@ var (
 	action_type_del_comment = 2 // 说明：要删除的评论id，在action_type=2的时候使用
 )
 
-// 登录用户对视频的点赞和取消点赞操作
+// 登录用户对视频的点赞和取消点赞操作>>>未测试
 func (*extraApi_1) FavoriteAction(c *gin.Context) {
-	var r request.FavoriteActionRequest
-	if err := c.ShouldBindJSON(&r); err != nil {
-		global.GVA_LOG.Error("[FavoriteAction] 解析请求参数失败", zap.Error(err))
+	var req request.FavoriteActionRequest
+	// 先获取token
+	token := c.Query("token")
+	// 判断token是否为空
+	if token == "" {
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "token为空"})
+		global.GVA_LOG.Info("token为空")
 		return
 	}
-	videoId := r.Video
-	actionType := r.Action_type
-	if actionType == uint(action_type_like) {
+	// 解析token
+	j := utils.NewJWT()
+	_, err := j.ParseToken(token)
+	if err != nil {
+		// 过期中断
+		if err == utils.TokenExpired {
+			c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "token过期"})
+			global.GVA_LOG.Error("token过期", zap.Error(err))
+			return
+		}
+		// 其他错误
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: err.Error()})
+		global.GVA_LOG.Error("token解析失败", zap.Error(err))
+		return
+	}
+	req.Token = token
+	// 获取视频id
+	video_id := c.Query("video_id")
+	req.Video, _ = utils.StringToUint(video_id)
+	// 然后获取action_type
+	action_type := c.Query("action_type")
+	req.Action_type, _ = utils.StringToUint(action_type)
+
+	// 判断action_type是否为空
+	if action_type == "" {
+		c.JSON(http.StatusOK, response.Status{StatusCode: ERROR, StatusMsg: "action_type为空"})
+		global.GVA_LOG.Info("action_type为空")
+		return
+	}
+	// 判断action_type如果为1，则点赞，如果为2，则取消点赞
+	if req.Action_type == uint(action_type_like) {
 		// 点赞
-		err := feedService.LikeVideo(videoId)
+		err := feedService.LikeVideo(req.Token, req.Video)
 		if err != nil {
 			global.GVA_LOG.Error("[FavoriteAction] 点赞失败", zap.Error(err))
 			return
 		}
-		status := response.Status{StatusCode: SUCCESS, StatusMsg: "点赞成功"}
-		c.JSON(http.StatusOK, response.FavoriteActionResponse{Status: status})
+		c.JSON(http.StatusOK, response.Status{StatusCode: SUCCESS, StatusMsg: "点赞成功"})
 	}
-	if actionType == uint(action_type_unlike) {
+	if req.Action_type == uint(action_type_unlike) {
 		// 取消点赞
-		err := feedService.UnLikeVideo(videoId)
+		err := feedService.UnLikeVideo(req.Token, req.Video)
 		if err != nil {
 			global.GVA_LOG.Error("[FavoriteAction] 取消点赞失败", zap.Error(err))
 			return
 		}
-		status := response.Status{StatusCode: SUCCESS, StatusMsg: "取消点赞成功"}
-		c.JSON(http.StatusOK, response.FavoriteActionResponse{Status: status})
+		c.JSON(http.StatusOK, response.Status{StatusCode: SUCCESS, StatusMsg: "取消点赞成功"})
 	}
-
 }
 
 // 获取点赞列表

@@ -28,3 +28,9 @@ type CommentActionRequest struct {
 	Video uint   `form:"video"` //视频ID
 	Text  string `form:"text"`  //评论内容
 }
+
+type FollowActionRequest struct {
+	Token       string `form:"token"`       //用户鉴权Token
+	Video       uint   `form:"video"`       //视频ID
+	Action_type uint   `form:"action_type"` //操作类型
+}

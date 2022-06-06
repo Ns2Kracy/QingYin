@@ -3,6 +3,7 @@ package service
 import (
 	"QingYin/global"
 	model "QingYin/model/system"
+	"QingYin/utils"
 
 	"go.uber.org/zap"
 )
@@ -28,7 +29,8 @@ func (*FeedService) GetVideoFeed(last_time string) ([]model.SysVideo, error) {
 	return videos, nil
 }
 
-func (s *FeedService) LikeVideo(VedioId uint) error {
+func (s *FeedService) LikeVideo(UserId string, VedioId uint) error {
+	// 保存视频点赞信息
 	var video model.SysVideo
 	err := global.GVA_DB.First(&video, VedioId).Error
 	if err != nil {
@@ -36,15 +38,27 @@ func (s *FeedService) LikeVideo(VedioId uint) error {
 		return err
 	}
 	video.FavoriteCount++
-	err = global.GVA_DB.Save(&video).Error
+	//更新视频isFavorite字段
+	err = global.GVA_DB.Save(&video).Update("isFavorite", true).Error
 	if err != nil {
-		global.GVA_LOG.Error("点赞失败", zap.Error(err))
+		global.GVA_LOG.Error("保存点赞信息失败", zap.Error(err))
 		return err
 	}
+	// 保存用户点赞信息到user_favorite_videos表
+	var userFavoriteVideo model.UserFavoriteVideo
+	userFavoriteVideo.UserID, _ = utils.StringToUint(UserId)
+	userFavoriteVideo.VideoID = VedioId
+	err = global.GVA_DB.Save(userFavoriteVideo).Error
+	if err != nil {
+		global.GVA_LOG.Error("保存用户点赞信息失败", zap.Error(err))
+		return err
+	}
+
 	return nil
 }
 
-func (s *FeedService) UnLikeVideo(VedioId uint) error {
+func (s *FeedService) UnLikeVideo(UserId string, VedioId uint) error {
+	// 取消视频点赞信息
 	var video model.SysVideo
 	err := global.GVA_DB.First(&video, VedioId).Error
 	if err != nil {
@@ -52,10 +66,21 @@ func (s *FeedService) UnLikeVideo(VedioId uint) error {
 		return err
 	}
 	video.FavoriteCount--
-	err = global.GVA_DB.Save(&video).Error
+	//更新视频isFavorite字段
+	err = global.GVA_DB.Save(&video).Update("isFavorite", false).Error
 	if err != nil {
-		global.GVA_LOG.Error("取消点赞失败", zap.Error(err))
+		global.GVA_LOG.Error("取消点赞信息失败", zap.Error(err))
 		return err
 	}
+	// 取消用户点赞信息到user_favorite_videos表
+	var userFavoriteVideo model.UserFavoriteVideo
+	userFavoriteVideo.UserID, _ = utils.StringToUint(UserId)
+	userFavoriteVideo.VideoID = VedioId
+	err = global.GVA_DB.Delete(userFavoriteVideo).Error
+	if err != nil {
+		global.GVA_LOG.Error("取消用户点赞信息失败", zap.Error(err))
+		return err
+	}
+
 	return nil
 }
