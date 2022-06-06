@@ -1,5 +1,0 @@
-[QinDouYin/Jaki]2022/06/06 - 12:52:14.150	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/service/sys_relation.go:57	Update Slave Focus relation Failed	{"error": "Error 1690: BIGINT UNSIGNED value is out of range in '(`douyin`.`sys_users`.`follow_count` - ?)'"}
-[QinDouYin/Jaki]2022/06/06 - 12:52:14.151	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_extra_api_2.go:43	Cancel Focus Failed	{"error": "Error 1690: BIGINT UNSIGNED value is out of range in '(`douyin`.`sys_users`.`follow_count` - ?)'"}
-[QinDouYin/Jaki]2022/06/06 - 23:14:00.940	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_extra_api_1.go:118	获取用户信息失败!
-[QinDouYin/Jaki]2022/06/06 - 23:15:09.693	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_extra_api_1.go:118	获取用户信息失败!	{"error": ""}
-[QinDouYin/Jaki]2022/06/06 - 23:16:19.385	[31merror[0m	C:/Users/Lenovo/Desktop/douyin/QinYin/QingYin/api/v1/sys_extra_api_1.go:118	获取用户信息失败!	{"error": "1"}
