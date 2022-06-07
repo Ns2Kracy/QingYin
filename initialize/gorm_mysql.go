@@ -36,12 +36,10 @@ func GormMysql() *gorm.DB {
 
 // 自动建立表结构
 func RegisterTables(db *gorm.DB) {
-	//这一步很重要
-	db.SetupJoinTable(&model.SysUser{}, "Comments", &model.UserCommentVideo{})
 	err := db.AutoMigrate(
 		&model.SysUser{},
 		&model.SysVideo{},
-		&model.UserCommentVideo{},
+		&model.SysComment{},
 	)
 
 	if err != nil {

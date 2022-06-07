@@ -10,9 +10,12 @@ type ApiGroup struct {
 
 //service层实例化
 var (
-	userService    = service.ServiceGroups.UserService
-	feedService    = service.ServiceGroups.FeedService
-	publishService = service.ServiceGroups.PublishService
+	userService     = service.ServiceGroups.UserService
+	feedService     = service.ServiceGroups.FeedService
+	publishService  = service.ServiceGroups.PublishService
+	relationService = service.ServiceGroups.RelationService
+	favoriteService = service.ServiceGroups.FavoriteService
+	commentService  = service.ServiceGroups.CommentService
 )
 
 var ApiGroups = new(ApiGroup)
