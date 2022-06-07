@@ -23,3 +23,10 @@ type User struct {
 	FollowerCount int64  `json:"follower_count"` //粉丝总数
 	IsFollow      bool   `json:"is_follow"`      //是否关注:true已关注,false未关注
 }
+
+type Comment struct {
+	ID         uint   `json:"id"`          //评论id
+	User       User   `json:"user"`        //评论用户信息
+	Content    string `json:"content"`     //评论内容
+	CreateDate string `json:"create_date"` //评论发布日期，格式 mm-dd
+}

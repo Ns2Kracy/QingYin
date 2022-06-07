@@ -1,11 +1,14 @@
 package model
 
-type UserCommentVideo struct {
-	SysUserID  uint   `gorm:"primary_key;autoIncrement:false"`
-	SysVideoID uint   `gorm:"primary_key;autoIncrement:false"`
+import "QingYin/global"
+
+type SysComment struct {
+	global.GVA_MODEL
 	Content    string `gorm:"comment:评论内容;default:NULL"`
+	UserRefer  uint   //用户ID
+	VideoRefer uint   //视频ID
 }
 
-func (UserCommentVideo) TableName() string {
-	return "user_comment_videos"
+func (SysComment) TableName() string {
+	return "sys_comments"
 }

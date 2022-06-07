@@ -21,16 +21,13 @@ func InitRouter() *gin.Engine {
 
 	//Api分组
 	apiRouter := r.Group("/douyin")
-	//公共路由不受登陆状态限制?
-	// publicRouter := r.Group("")
-	// publicRouter.GET("/douyin/feed", v1.ApiGroups.Feed)
 
 	//路由初始化
 	apiRouter.Use(middleware.JWTAuth())
 	{
 		router.ApiRouters.InitBasicRouter(apiRouter)
-		// router.ApiRouters.InitExtraApi_1Router(apiRouter)
-		// router.ApiRouters.InitExtraApi_2Router(apiRouter)
+		router.ApiRouters.InitExtraApi_1Router(apiRouter)
+		router.ApiRouters.InitExtraApi_2Router(apiRouter)
 	}
 	global.GVA_LOG.Info("router register success")
 	return r

@@ -20,11 +20,3 @@ func (b *basicApiRouter) InitBasicRouter(Router *gin.RouterGroup) {
 		Router.GET("/publish/list/", api.PublishList)
 	}
 }
-
-// basic apis
-// apiRouter.GET("/feed/", controller.Feed)
-// apiRouter.GET("/user/", controller.UserInfo)
-// apiRouter.POST("/user/register/", controller.Register)
-// apiRouter.POST("/user/login/", controller.Login)
-// apiRouter.POST("/publish/action/", controller.Publish)
-// apiRouter.GET("/publish/list/", controller.PublishList)
