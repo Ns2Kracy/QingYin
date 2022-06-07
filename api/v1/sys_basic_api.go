@@ -25,7 +25,7 @@ const (
 //相当于controller层,调用service层方法实现业务逻辑
 
 //生成用户返回信息:::::仅限内部调用
-func (*basicApi) userInfoResponse(userId uint) (error, response.User) {
+func userInfoResponse(userId uint) (error, response.User) {
 	//获取用户信息
 	err, userInfo := userService.GetUserInfo(userId)
 	if err != nil {
@@ -70,9 +70,9 @@ func (b *basicApi) Feed(c *gin.Context) {
 	//生成视频返回信息
 	for _, video := range videoList {
 		//生成视频用户信息
-		err, userRet := b.userInfoResponse(video.UserRefer)
+		err, userRet := userInfoResponse(video.UserRefer)
 		if err != nil {
-			global.GVA_LOG.Error("获取用户信息失败!", zap.Error(getErr))
+			global.GVA_LOG.Error("获取用户信息失败!", zap.Error(err))
 			status := response.Status{StatusCode: ERROR, StatusMsg: "获取用户信息失败"}
 			c.JSON(http.StatusOK, response.FeedResponse{Status: status, NextTime: 0, VideoList: nil})
 			return
@@ -177,7 +177,6 @@ func (b *basicApi) Publish(c *gin.Context) {
 	var videoReq request.PublishActionRequest
 	videoReq.Title = c.Request.FormValue("title")
 	videoReq.Token = c.Request.FormValue("token")
-	// videoReq.Data = c.Request.FormFile("data")
 	var sysVideo model.SysVideo
 
 	//确定视频标题信息
