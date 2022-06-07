@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type extraApi_1Router struct{}
+type extraApi_2Router struct{}
 
-//初始化额外接口路由一
-func (ex *extraApi_1Router) InitExtraApi_1Router(Router *gin.RouterGroup) {
+//初始化额外接口路由二
+func (ex *extraApi_2Router) InitExtraApi_2Router(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{
 		Router.POST("/favorite/action/", api.FavoriteAction)

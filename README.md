@@ -1,4 +1,10 @@
-# 项目结构
+# 字节青训营项目
+
+<a href="https://github.com/Mr-Jacks520" target="https://github.com/Mr-Jacks520"><img src="https://s2.loli.net/2022/06/07/z9jE61fxHBPich7.png" ></a>![手指.png](https://s2.loli.net/2022/06/07/4nOs3K85TfLUq7a.png)
+
+## 项目结构：
+
+**参考：[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin.git)**
 
 ```shell
 ├── api
@@ -32,34 +38,80 @@
 | `service`    | service层       | 存放业务逻辑问题                               |
 | `utils`      | 工具包            | 工具函数封装                                 |
 
-## 项目架构参考
+## 接口完成：
 
-[相关项目](https://github.com/flipped-aurora/gin-vue-admin.git)
+- [x] 基础接口
+- [x] 拓展接口一
+- [x] 拓展接口二
 
-## 5.31-6.1测试访问接口结果
+## 快速开始：
 
-![image-20220601002408274.png](https://s2.loli.net/2022/06/02/IB84bySNMqTWX3P.png)
-=======
-![image-20220601002408274](https://s2.loli.net/2022/06/01/ld5gOEVLxCpUZsR.png)
+1. 配置服务运行端口以及数据库
 
-**并未实现业务逻辑，只是进行了伪数据测试**
+   ~~~yaml
+   # config.yaml
+   # system configuration
+   system:
+     env: 'develop'
+     addr: 8080	#<<<<<<<<<<<<<<<<<设置服务运行端口
+     db-type: 'mysql'
+     oss-type: 'local'	#<<<<<<<<<<<<<<<<<本地功能还未实现,若有OSS服务可替换例如aliyun-oss,huawei-oss等
+     use-redis: false
+     use-multipoint: false
+     # IP限制次数 一个小时15000次
+     iplimit-count: 15000
+     #  IP限制一个小时
+     iplimit-time: 3600
+     
+   # mysql connect configuration
+   mysql:
+     path: 'localhost'	#<<<<<<<<<<<<<<<<<设置MYSQL地址
+     port: '3306'	#<<<<<<<<<<<<<<<<<设置MySQL运行端口
+     db-name: 'douyin'	#<<<<<<<<<<<<<<<<<设置MySQL数据库名，必须预先建好
+     config: 'charset=utf8&parseTime=True&loc=Local'
+     username: '数据库用户名'	#<<<<<<<<<<<<<<<<<填充
+     password: '数据库用户密码'	#<<<<<<<<<<<<<<<<<填充
+     max-idle-conns: 10
+     max-open-conns: 100
+     log-mode: "info"
+     log-zap: false
+   
+   # aliyun oss configuration
+   aliyun-oss:
+     endpoint: ''
+     access-key-id: ''
+     access-key-secret: ''
+     bucket-name: ''
+     bucket-url: ''
+     base-path: ''
+   ~~~
 
-## 6.1-6.2数据库结构搭建
+2. 确认加载配置文件路径
 
-![image-20220602012937404.png](https://s2.loli.net/2022/06/02/SUCMiGgj7YnIhPy.png)
+   ~~~go
+   // utils/constant.go
+   package utils
+   
+   const (
+   	ConfigFile = "config.yaml"
+   )
+   ~~~
 
-![image-20220602013202537.png](https://s2.loli.net/2022/06/02/r7FaAnNHQoUiqhS.png)
+3. 运行服务
 
-## 6.2-6.3用户业务逻辑实现
+   ~~~shell
+   go run ./main.go
+   ~~~
 
-![register.png](https://s2.loli.net/2022/06/03/13siChgURbXFw9v.png)
+## 项目展示：
 
-![login.png](https://s2.loli.net/2022/06/03/WHEznYVQ2ob8gSl.png)
+<a href="https://qingyin-video.oss-cn-chengdu.aliyuncs.com/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4" target="_blank"><img src="https://s2.loli.net/2022/06/07/onXAjk7NvfMKY8w.png" >项目演示地址（每天9:00-11:00开放）</a>
 
-![userinfo.png](https://s2.loli.net/2022/06/03/YDArcEuLqzP6M7d.png)
+**如需体验请联系[Mr-Jacks520](https://github.com/Mr-Jacks520)**
+
+
 
 ![debug.png](https://s2.loli.net/2022/06/03/ALIwj9O4cRXbDsZ.png)
-
 
 
 # 6月4日基础接口开发完毕(BUG另说)
@@ -71,3 +123,4 @@
 ![上传.jpg](https://s2.loli.net/2022/06/04/YvW9dpT2R8Oq5Fr.jpg)
 
 ![发布列表.jpg](https://s2.loli.net/2022/06/04/8tSIZV73xPHMQRd.jpg)
+
