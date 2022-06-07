@@ -6,15 +6,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type extraApi_1Router struct{}
+type basicApiRouter struct{}
 
-//初始化额外接口路由一
-func (ex *extraApi_1Router) InitExtraApi_1Router(Router *gin.RouterGroup) {
+// 初始化基本接口路由
+func (b *basicApiRouter) InitBasicRouter(Router *gin.RouterGroup) {
 	api := v1.ApiGroups
 	{
-		Router.POST("/favorite/action/", api.FavoriteAction)
-		Router.GET("/favorite/list/", api.FavoriteList)
-		Router.POST("/comment/action/", api.CommentAction)
-		Router.GET("/comment/list/", api.CommentList)
+		Router.GET("/feed/", api.Feed)
+		Router.GET("/user/", api.UserInfo)
+		Router.POST("/user/register/", api.Register)
+		Router.POST("/user/login/", api.Login)
+		Router.POST("/publish/action/", api.Publish)
+		Router.GET("/publish/list/", api.PublishList)
 	}
 }
